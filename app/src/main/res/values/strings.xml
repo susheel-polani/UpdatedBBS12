@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Student Database</string>
+    <string-array name="semesterlist">
+        <item>I Semester</item>
+        <item>II Semester</item>
+        <item>III Semester</item>
+        <item>IV Semester</item>
+        <item>V Semester</item>
+        <item>VI Semester</item>
+        <item>VII Semester</item>
+        <item>VIII Semester</item>
+    </string-array>
+</resources>
