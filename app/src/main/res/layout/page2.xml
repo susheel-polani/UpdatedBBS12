@@ -27,8 +27,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Enter Registration Number"
-        android:layout_marginRight="16dp"
-        android:inputType="textMultiLine" />
+        android:digits="0123456789"
+        android:maxLength="12"
+        android:inputType="phone"
+        android:layout_marginRight="16dp" />
 
     <EditText
         android:layout_marginTop="32dp"
@@ -36,8 +38,10 @@
         android:layout_marginRight="16dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Enter DOB"
-        android:inputType="textMultiLine" />
+        android:digits="0123456789-"
+        android:maxLength="10"
+        android:inputType="phone"
+        android:hint="Enter DOB" />
     <Button
         android:id="@+id/botton2"
         android:layout_marginTop="42dp"

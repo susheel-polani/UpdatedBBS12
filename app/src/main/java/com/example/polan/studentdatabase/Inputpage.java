@@ -1,8 +1,13 @@
 package com.example.polan.studentdatabase;
 
+import android.app.ActionBar;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -22,8 +27,10 @@ public class Inputpage extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        isFirstTime();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.page2);
+        getSupportActionBar().setDefaultDisplayHomeAsUpEnabled(true);
 
         Button buttond2 = (Button) findViewById(R.id.botton2);
         buttond2.setOnClickListener(new View.OnClickListener()
@@ -50,5 +57,40 @@ public class Inputpage extends AppCompatActivity {
 
             }
         });
+
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menuoptions,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+
+
+            case R.id.backbutton:
+                Intent numbersIntent3 = new Intent(Inputpage.this, Mainpage.class);
+                startActivity(numbersIntent3);
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    private boolean isFirstTime() {
+        SharedPreferences preferences = getPreferences(MODE_PRIVATE);
+        boolean ranBefore = preferences.getBoolean("RanBefore", false);
+        if (!ranBefore) {
+            //show dialog if app never launch
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.putBoolean("RanBefore", true);
+            editor.commit();
+            Intent numbersIntent2 = new Intent(Inputpage.this, Mainpage.class);
+            startActivity(numbersIntent2);
+        }
+        return !ranBefore;
     }
 }

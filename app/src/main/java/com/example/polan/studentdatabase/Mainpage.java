@@ -1,6 +1,8 @@
 package com.example.polan.studentdatabase;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -15,16 +17,19 @@ public class Mainpage extends AppCompatActivity {
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.mainpage);
-        Button buttond = (Button) findViewById(R.id.InstructionSubmit);
-        buttond.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view) {
-                Intent numbersIntent = new Intent(Mainpage.this, Inputpage.class);
-                startActivity(numbersIntent);
-            }
-        });
+            setContentView(R.layout.mainpage);
+
+            Button buttond = (Button) findViewById(R.id.InstructionSubmit);
+            buttond.setOnClickListener(new View.OnClickListener()
+            {
+                @Override
+                public void onClick(View view) {
+                    Intent numbersIntent = new Intent(Mainpage.this, Inputpage.class);
+                    startActivity(numbersIntent);
+                }
+            });
+
     }
 }
